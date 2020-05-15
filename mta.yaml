@@ -1,5 +1,5 @@
-_schema-version: '2.0.0'
 ID: OSR_EDW_SOURCE_ABS
+_schema-version: '2.1'
 description: Source for OSR EDW ABS
 version: 0.0.1
 modules:
@@ -14,17 +14,10 @@ modules:
           TARGET_CONTAINER: '~{hdi-container-name}'
       - name: edw-ext-access-grantor
 resources:
-  - name: OSR_EDW_SOURCE_ABS-dws
-    properties:
-      dwf-edw-client-name: '${service-name}'
-    type: com.sap.xs.dwf-edw-client
   - name: OSR_EDW_SOURCE_ABS-container
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
-    parameters:
-      service-keys:
-        - name: dwf-monitor
   - name: edw-ext-access-grantor
     type: org.cloudfoundry.existing-service
     description: edw-ext-access-grantor
